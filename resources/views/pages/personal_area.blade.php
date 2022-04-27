@@ -1,0 +1,75 @@
+@extends('app')
+
+@section('content')
+    <main>
+        <h1 class="headline-1">Личный кабинет</h1>
+        <div class="my-zone">
+            <div class="my-projects">
+                <div class="my-projects__top">
+                    <h2 class="headline-2">Мои проекты</h2>
+                    <div class="create-project">
+                        <svg class="create-project__btn" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C19.9939 15.5203 15.5203 19.9939 10 20ZM2 10.172C2.04732 14.5732 5.64111 18.1095 10.0425 18.086C14.444 18.0622 17.9995 14.4875 17.9995 10.086C17.9995 5.68451 14.444 2.10977 10.0425 2.086C5.64111 2.06246 2.04732 5.59876 2 10V10.172ZM11 15H9V11H5V9H9V5H11V9H15V11H11V15Z" fill="#7775F8"/>
+                        </svg>
+                        <p>Создать проект</p>
+                        <form class="create-project__form" action="#" method="post">
+                            <!--  csrf -->
+                            <input class="form-control" type="text" placeholder="Название проекта">
+                            <button class="btn btn-success" type="submit">Подтвердить</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="projects">
+                    <ul class="projects__list">
+                        <!-- foreach -->
+                        <li class="project__item">
+                            <p class="project__name">Максим уебок</p>
+                            <div class="project__desc">
+                                <div class="project-indicator success"></div>
+                                Новых задач - 47
+                            </div>
+                        </li>
+                        <!-- endforeach -->
+                        <li class="project__item">
+                            <p class="project__name ">Максим уебок</p>
+                            <div class="project__desc">
+                                <div class="project-indicator success"></div>
+                                Новых задач - 47
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="my-profile">
+                <form class="profile__form" action="#" method="post">
+                    <div class="profile__image">
+                        <div class="profile__image-inner">
+                            <img src="{{asset('images\avatarka.jpg')}}" alt="">
+                            <div class="upload-avatar__overlay">
+                                <label for="image-upload">Загрузить фото</label>
+                                <input id="image-upload" name="image" type="file">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__input-list">
+                        <div class="form__input-group">
+                            <input name="name" type="text" class="form-control profile__form-input" placeholder="name">
+                            <input name="nick_name" type="text" class="form-control profile__form-input" placeholder="nickname">
+                        </div>
+                        <div class="form__input-group">
+                            <input name="email" type="text" class="form-control profile__form-input" placeholder="email">
+                            <input name="name" type="text" class="form-control profile__form-input" placeholder="password">
+                        </div>
+                    </div>
+                    <button class="btn btn-success profile-btn" type="submit">
+                        Подтвердить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+@endsection
+
+@push('styles')
+    <link rel="stylesheet" href="{{asset('styles/personal_area.css')}}">
+@endpush

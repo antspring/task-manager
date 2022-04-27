@@ -1,0 +1,201 @@
+@charset "UTF-8";
+.registration-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #F0F1F7;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+.registration-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.registration {
+  width: 620px;
+  height: 640px;
+  background-color: white;
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 60px;
+  position: relative;
+}
+
+.registration::before {
+  content: url("../images/cat.png");
+  position: absolute;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.registration__heading {
+  font-size: 48px;
+  margin-top: 42px;
+}
+
+.registration__sign-in {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.sign-in-link {
+  color: #7775F8;
+}
+
+.registration__form {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.registration__form-input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  background-color: #F0F1F7;
+  padding: 18px;
+  -webkit-box-shadow: 0px 0px 4px rgba(240, 241, 247, 0.25);
+          box-shadow: 0px 0px 4px rgba(240, 241, 247, 0.25);
+  border-radius: 4px;
+}
+
+.registration__form-input::-webkit-input-placeholder {
+  color: #A9ACBA;
+  font-size: 18px;
+}
+
+.registration__form-input:-ms-input-placeholder {
+  color: #A9ACBA;
+  font-size: 18px;
+}
+
+.registration__form-input::-ms-input-placeholder {
+  color: #A9ACBA;
+  font-size: 18px;
+}
+
+.registration__form-input::placeholder {
+  color: #A9ACBA;
+  font-size: 18px;
+}
+
+.registration__form-checkbox {
+  margin-top: 20px;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  /* для элемента label, связанного с .custom-checkbox */
+  /* создание в label псевдоэлемента before со следующими стилями */
+  /* стили при наведении курсора на checkbox */
+  /* стили для активного чекбокса (при нажатии на него) */
+  /* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+  /* стили для чекбокса, находящегося в состоянии checked */
+  /* стили для чекбокса, находящегося в состоянии disabled */
+}
+
+.registration__form-checkbox + label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.registration__form-checkbox + label::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.registration__form-checkbox:not(:disabled):not(:checked) + label:hover::before {
+  border-color: #7775F8;
+}
+
+.registration__form-checkbox:not(:disabled):active + label::before {
+  background-color: #7775F8;
+  border-color: #7775F8;
+}
+
+.registration__form-checkbox:focus:not(:checked) + label::before {
+  border-color: #7775F8;
+}
+
+.registration__form-checkbox:checked + label::before {
+  border-color: #7775F8;
+  background-color: #7775F8;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.registration__form-checkbox:disabled + label::before {
+  background-color: white;
+}
+
+.registration__form-btn {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #7775F8;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+}
+
+.confirm-rules {
+  font-size: 18px;
+}
+
+.registration__form-error {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #E35297;
+  height: 16px;
+}
+
+.form-group:not(:first-child), .confirm-rules {
+  margin-top: 10px;
+}
