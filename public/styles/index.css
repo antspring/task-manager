@@ -211,7 +211,7 @@
 }
 
 .new-task {
-  color: #0FBF4B;
+  /*color: #0FBF4B;*/
 }
 
 .new-task svg path {
@@ -223,11 +223,11 @@
 }
 
 .new-task .creator-info__tel {
-  color: #0FBF4B;
+  color: #808080;
 }
 
 .new-task .date-task {
-  color: #0FBF4B;
+  color: #808080;
 }
 
 .hover-block {
@@ -292,7 +292,27 @@
 }
 
 .description__text {
+  font-family: 'Roboto-Regular', sans-serif;
   line-height: 150%;
+  padding: 10px 15px;
+  border: 1px solid #7775F8;
+  border-radius: 5px;
+  width: 100%;
+  resize: none;
+  text-align: left;
+  min-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+.update-descr__form {
+  padding-left: 30px;
+}
+
+.description__text::-webkit-scrollbar { width: 0; }
+
+.description__text:disabled {
+  background: unset;
 }
 
 .confirm-update {
@@ -307,13 +327,20 @@
   align-items: center;
 }
 
+.desc-heading__image {
+  margin-right: 10px;
+}
+
+.action__icon {
+  margin-right: 10px;
+}
 
 .task-modal__bottom {
   margin-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 20px 20px 20px;
+  padding: 0 20px 30px 20px;
 }
 
 .task-modal__actions {
