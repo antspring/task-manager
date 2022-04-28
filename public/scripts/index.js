@@ -33,41 +33,43 @@ $('.task').draggable({
 
 // modal task more
 $('.task-modal__btn').click(function() {
-    $('.modal__overlay').fadeIn(297, function() {
+    $('.modal__overlay').fadeIn(150, function() {
         $('.task-modal')
             .css('display', 'block')
-            .animate({ opacity: 1 }, 198);
+            .animate({ opacity: 1 }, 150);
     });
 })
 
 // modal task more end
 $("#add-people__btn").click(function() {
-    $('.modal__overlay').fadeIn(297, function() {
+    $('.modal__overlay').fadeIn(150, function() {
         $('.addpeople-modal')
             .css('display', 'block')
-            .animate({ opacity: 1 }, 198);
+            .animate({ opacity: 1 }, 150);
     });
 })
 
 
 // create task modal
 $("#create-task__btn").click(function() {
-    $('.modal__overlay').fadeIn(297, function() {
+    $('.modal__overlay').fadeIn(150, function() {
         $('.create-task__modal')
             .css('display', 'block')
-            .animate({ opacity: 1 }, 198);
+            .animate({ opacity: 1 }, 150);
     });
 })
 
 
 // Закрытие модалки
 $('.modal__overlay').click(function() {
-    $('.modal__overlay').fadeOut(297, function() {
+    $('.modal__overlay').fadeOut(0, function() {
         $('.modal')
             .css('display', 'none')
-            .animate({ opacity: 0 }, 198);
+            .animate({ opacity: 0 }, 0);
     });
 })
 
 // custom select
-$('.custom-select').niceSelect();
+$( document ).ready(function() {
+    $('.custom-select').niceSelect();
+});

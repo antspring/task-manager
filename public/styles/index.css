@@ -1,9 +1,8 @@
 @charset "UTF-8";
 /* Main */
 .panel-btn {
-  background-color: none;
+  background-color: unset;
   border: none;
-  color: #7775F8;
   position: relative;
   cursor: pointer;
 }
@@ -265,7 +264,6 @@
   position: fixed;
   width: 780px;
   border-radius: 8px;
-  padding: 40px;
   background-color: white;
   display: none;
   opacity: 0;
@@ -273,14 +271,20 @@
 
 .task-modal__btn {
   cursor: pointer;
+
+}
+
+.task-modal__top {
+  height: 72px;
+  border-radius:8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  background: #434A85;
+  padding: 0 20px;
 }
 
 .task-modal__top h2 {
-  margin-bottom: 15px;
-}
-
-.task-modal__top p {
-  margin-bottom: 20px;
+  color: white;
 }
 
 .task-modal__description {
@@ -291,14 +295,25 @@
   line-height: 150%;
 }
 
-.description__heading {
-  margin-bottom: 20px;
+.confirm-update {
+  margin-top: 20px;
+  padding: 13px 40px;
 }
 
+.description__heading {
+  margin-bottom: 20px;
+  font-size: 21px;
+  display: flex;
+  align-items: center;
+}
+
+
 .task-modal__bottom {
+  margin-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 0 20px 20px 20px;
 }
 
 .task-modal__actions {
@@ -310,14 +325,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
   margin-left: 20px;
 }
 
 .actions__heading {
   margin-bottom: 10px;
+  color: #808080;
 }
 
 .action__button {
@@ -327,13 +340,19 @@
   display: flex;
   border-radius: 5px;
   outline: none;
+  background: unset;
   padding: 8px;
-  border: none;
-  color: white;
+  border: 1px solid #D3D3D3;
+  transition: .5s;
+  color: black;
   margin-top: 10px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.action__button:hover {
+  border: 1px solid #7775F8;
 }
 
 .action__button svg {

@@ -37,6 +37,11 @@
   color: white;
 }
 
+.btn-primary {
+  background-color: #7775F8;
+  color: white;
+}
+
 .form-control[type=text] {
   border-radius: 4px;
   outline: none;

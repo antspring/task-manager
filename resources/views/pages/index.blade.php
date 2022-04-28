@@ -14,17 +14,9 @@
                     <div class="panel__select-parent">
                         <div class="box">
                             <select class="custom-select" style="display: none;">
-                                <option value="1">Some option</option>
-                                <option value="2">Another option</option>
-                                <option value="4">Potato</option>
+                                <option value="1">Сначала новые</option>
+                                <option value="2">Сначала старые</option>
                             </select>
-                            <div class="nice-select" tabindex="0"><span class="current">Some option</span>
-                                <ul class="list">
-                                    <li data-value="1" class="option selected focus">Some option</li>
-                                    <li data-value="2" class="option">Another option</li>
-                                    <li data-value="4" class="option">Potato</li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <input class="form-control panel__search-btn " type="text " placeholder="Поиск по имени ">
@@ -40,7 +32,7 @@
                 <div class="content-tasks ">
                     <div data-target="0 " class="hover-block ">
                     </div>
-                    <div class="task-parent ">
+                    <div class="task-parent">
                         <div id="1 " class="task ">
                             <div class="task-name ">
                                 Новая задача
@@ -499,26 +491,27 @@
     </main>
     <!-- TASK-MODAL -->
     <div class="task-modal modal">
-        <div class="task-modal__top ">
-            <h2 class="headline-2 ">
+        <div class="task-modal__top">
+            <h2 class="headline-3">
                 Название
             </h2>
-            <p>В колонке новые задачи</p>
         </div>
         <div class="task-modal__bottom ">
             <div class="task-modal__description ">
-                <p class="description__heading ">Описание</p>
+
+                 <p class="description__heading"><object data="images/null.svg" type=""></object> Описание</p>
                 <p class="description__text">
                     Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы
                     использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
                     По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным
                     смыслом и придаст неповторимый колорит советских времен.
                 </p>
+                <button  class="btn btn-success confirm-update">Сохранить</button>
             </div>
             <div class="task-modal__actions ">
                 <p class="actions__heading ">Доступные действия</p>
-                <button class="action__button btn-success">
-                    <object data="images/white-man.svg" type=""></object>
+                <button class="action__button">
+                    <object data="images/.svg" type=""></object>
                     Добавить
                 </button>
             </div>
@@ -529,13 +522,13 @@
     <!-- ADDPEOPLE-MODAL -->
     <div class="addpeople-modal modal ">
         <div class="addpeople-modal__head ">
-            <h2 class="headline-2 ">Добавить людей</h2>
+            <h2 class="headline-3 ">Добавить людей</h2>
         </div>
-        <form class="addpeople-form " action="# " method="post ">
+        <form class="addpeople-form " action="#" method="post">
             <div class="addpeople-form__input ">
-                <input class="form-control" type="text " placeholder="Введите ник ">
+                <input class="form-control" type="text" placeholder="Введите ник ">
             </div>
-            <button class="btn btn-success addpeople__btn " type="submit ">Добавить человека</button>
+            <button class="btn btn-success addpeople__btn " type="button">Добавить человека</button>
         </form>
     </div>
     <!-- ADDPEOPLE-MODAL END-->
@@ -543,7 +536,7 @@
     <!-- CREATE-TASK -->
     <div class="create-task__modal modal ">
         <div class="create-task__heading ">
-            <h2 class="headline-2 ">Создать задачу</h2>
+            <h2 class="headline-3 ">Создать задачу</h2>
         </div>
 
         <form class="create-task__form" action="# " method="post ">
