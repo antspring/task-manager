@@ -25,7 +25,7 @@
                     <ul class="projects__list">
                         <!-- foreach -->
                         <li class="project__item">
-                            <p class="project__name">Максим уебок</p>
+                            <p class="project__name">Экскалибур</p>
                             <div class="project__desc">
                                 <div class="project-indicator success"></div>
                                 Новых задач - 47
@@ -33,7 +33,7 @@
                         </li>
                         <!-- endforeach -->
                         <li class="project__item">
-                            <p class="project__name ">Максим уебок</p>
+                            <p class="project__name ">Эмбер</p>
                             <div class="project__desc">
                                 <div class="project-indicator success"></div>
                                 Новых задач - 47

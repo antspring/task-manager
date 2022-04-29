@@ -1,6 +1,8 @@
 //modal with link in header
 $('.header__profile-more').click(function() {
-    $('.header__profile-more-open').toggle("fast");
+    $('.header__profile-more__modal').toggle("fast");
+    $(this).toggleClass("open");
+
 });
 
 // change background color input in sidebar

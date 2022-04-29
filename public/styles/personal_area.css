@@ -175,26 +175,25 @@
 }
 
 .profile__image-inner:hover .upload-avatar__overlay {
-  height: 50px;
-  bottom: -5px;
+  bottom: -4px;
 }
 
 .upload-avatar__overlay {
   position: absolute;
-  width: 200px;
+    bottom: -55px;
+  width: 190px;
   -webkit-transition: .5s ease;
   transition: .5s ease;
-  width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 30px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 50px;
   background-color: rgba(97, 97, 97, 0.719);
 }
 

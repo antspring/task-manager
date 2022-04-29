@@ -271,7 +271,11 @@ main {
   position: relative;
 }
 
-.header__profile-more-open {
+.header__profile-more.open svg {
+  transform: rotate(180deg);
+}
+
+.header__profile-more__modal {
   position: absolute;
   width: 258px;
   right: -30px;

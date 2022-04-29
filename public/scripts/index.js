@@ -60,8 +60,8 @@ $("#create-task__btn").click(function() {
 })
 
 
-// Закрытие модалки
-$('.modal__overlay').click(function() {
+// close modal
+$('.modal__overlay, .close-modal').click(function() {
     $('.modal__overlay').fadeOut(0, function() {
         $('.modal')
             .css('display', 'none')

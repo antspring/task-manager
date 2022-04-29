@@ -94,7 +94,7 @@
   content: "";
   position: absolute;
   width: 24px;
-  height: 24px;
+  height: 25px;
   right: 23px;
   top: -3px;
   background-repeat: no-repeat;
@@ -235,6 +235,14 @@
   width: 100%;
 }
 
+.close-modal {
+  position: absolute;
+  width: 25px;
+  top: 20px;
+  right: 25px;
+  cursor: pointer;
+}
+
 /* Modal task */
 .modal__overlay {
   z-index: 37;
@@ -309,7 +317,15 @@
   padding-left: 30px;
 }
 
-.description__text::-webkit-scrollbar { width: 0; }
+.description__text::-webkit-scrollbar {
+  background: unset;
+  width: 5px;
+}
+
+.description__text::-webkit-scrollbar-thumb {
+  background-color: #bbbbbb;
+  border-radius: 9em;
+}
 
 .description__text:disabled {
   background: unset;
