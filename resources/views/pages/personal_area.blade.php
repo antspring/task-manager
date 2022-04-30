@@ -14,31 +14,28 @@
                                   fill="#7775F8"/>
                         </svg>
                         <p>Создать проект</p>
-                        <form class="create-project__form" action="#" method="post">
-                            <!--  csrf -->
-                            <input class="form-control" type="text" placeholder="Название проекта">
+                        <form class="create-project__form" action="{{ route('create-project') }}" method="post">
+                            @csrf
+                            <input class="form-control" type="text" name="project_name" placeholder="Название проекта">
                             <button class="btn btn-success" type="submit">Подтвердить</button>
                         </form>
                     </div>
                 </div>
                 <div class="projects">
                     <ul class="projects__list">
-                        <!-- foreach -->
-                        <li class="project__item">
-                            <p class="project__name">Экскалибур</p>
-                            <div class="project__desc">
-                                <div class="project-indicator success"></div>
-                                Новых задач - 47
-                            </div>
-                        </li>
-                        <!-- endforeach -->
-                        <li class="project__item">
-                            <p class="project__name ">Эмбер</p>
-                            <div class="project__desc">
-                                <div class="project-indicator success"></div>
-                                Новых задач - 47
-                            </div>
-                        </li>
+                        @forelse ($groupToUser as $item)
+                            <li class="project__item">
+                                <p class="project__name">{{ $item->group->name }}</p>
+                                <div class="project__desc">
+                                    <div class="project-indicator success"></div>
+                                    Новых задач - 47
+                                </div>
+                            </li>
+                        @empty
+                            <li class="project__item">
+                                <p class="project__name">У вас нет проектов</p>
+                            </li>
+                        @endforelse
                     </ul>
                 </div>
             </div>
@@ -54,8 +51,8 @@
                         </div>
                     </div>
                     <div class="form__input-list">
-                        <input id="name" disabled value="Евгений" name="name" type="text" class="form-control profile__form-input" placeholder="name">
-                        <input disabled value="zarasfara" name="nick_name" type="text" class="form-control profile__form-input" placeholder="nickname">
+                        <input id="name" disabled value="{{ $user->name }}" name="name" type="text" class="form-control profile__form-input" placeholder="name">
+                        <input disabled value="{{ $user->login }}" name="nick_name" type="text" class="form-control profile__form-input" placeholder="nickname">
                         <input disabled value="as@mail.com" name="email" type="text" class="form-control profile__form-input" placeholder="email">
                     </div>
                     <input class="btn btn-primary profile-btn" type="button" value="Изменить">

@@ -80,6 +80,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+    overflow: hidden;
 }
 
 .status-count {
@@ -208,10 +209,6 @@
 
 .date-task svg path {
   fill: #7775F8;
-}
-
-.new-task {
-  /*color: #0FBF4B;*/
 }
 
 .new-task svg path {
