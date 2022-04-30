@@ -19,7 +19,7 @@
             <div class="header__profile-image">
                 <img src="{{asset('images\Ellipse 1.jpg')}}" alt="">
             </div>
-            <p class="header__profile-name">Егор</p>
+            <p class="header__profile-name">{{ $user->name }}</p>
             <div class="header__profile-more">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13.6667 5L8.33341 10.3333L3.00008 5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

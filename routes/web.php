@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,16 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+Route::middleware('auth')->group(function (){
 
-Route::get('/register', function () {
-    return view('pages.register');
-});
+    Route::get('/', [HomeController::class, 'index']);
 
-
-Route::get('/personal-area/{user}', function ($user) {
-
-    return view('pages.personal_area',compact('user'));
+    Route::get('/personal-area/{user}', [HomeController::class, 'personalArea'])->name('personal-area');
 });

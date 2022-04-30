@@ -200,6 +200,8 @@ main {
           align-items: center;
   width: 260px;
   height: 56px;
+    background-color: unset;
+    border: none;
 }
 
 .side-bar__link p {

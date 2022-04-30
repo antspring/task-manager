@@ -8,38 +8,49 @@
             </div>
             <div class="registration__sign-in">
                 Уже есть аккаунт?
-                <a class="sign-in-link" href="#">Войдите</a>
+                <a class="sign-in-link" href="{{ route('login') }}">Войдите</a>
             </div>
-            <form class="registration__form">
+            <form action="/register" class="registration__form" method="POST">
+                @csrf
                 <div class="form-group">
-                    <input name="name" class="registration__form-input" type="text" placeholder="Имя">
+                    <input name="name" class="registration__form-input" type="text" value="{{ old('name') }}" placeholder="Имя">
                     <div class="registration__form-error">
-                        Поле Ф.И.О. обязательное
+                        @error('name')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group">
-                    <input name="login" class="registration__form-input" type="text" placeholder="Логин">
+                    <input name="login" class="registration__form-input" type="text" value="{{ old('login') }}" placeholder="Логин">
                     <div class="registration__form-error">
-                        Поле Логин обязательное
+                        @error('login')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group">
                     <input name="password" class="registration__form-input" type="password" placeholder="Пароль">
                     <div class="registration__form-error">
-                        Поле Пароль обязательное
+                        @error('password')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group">
-                    <input name="password-confirm" class="registration__form-input" type="password" placeholder="Подтвердите пароль">
+                    <input name="password_confirmation" class="registration__form-input" type="password" placeholder="Подтвердите пароль">
                     <div class="registration__form-error">
-                        Поля должны совпадать
+                        @error('password_confirmation')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
                 <div class="confirm-rules">
                     <input name="rules" class="registration__form-checkbox" id="confirm-rules" type="checkbox" placeholder="Имя">
                     <label for="confirm-rules">Согласие с правилами обработки</label>
                     <div class="registration__form-error">
-                        Согласие обязательное
+                        @error('rules')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
 
