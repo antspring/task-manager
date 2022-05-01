@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Status extends Model
 {
+    protected $table = 'status';
+
     protected $fillable = ['name'];
 
-    public function groupToUser()
-    {
-        return $this->hasMany(GroupToUser::class);
-    }
-
-    public function tasks()
+    public function task()
     {
         return $this->hasMany(Task::class);
     }

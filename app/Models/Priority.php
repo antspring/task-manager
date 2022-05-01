@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Priority extends Model
 {
-    protected $fillable = ['name'];
+    protected $table = ['priority'];
 
-    public function groupToUser()
-    {
-        return $this->hasMany(GroupToUser::class);
-    }
+    protected $fillable = ['name'];
 
     public function tasks()
     {

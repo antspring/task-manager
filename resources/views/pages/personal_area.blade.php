@@ -28,7 +28,11 @@
                                 <p class="project__name">{{ $item->group->name }}</p>
                                 <div class="project__desc">
                                     <div class="project-indicator success"></div>
-                                    Новых задач - 47
+                                    @foreach($newTasks as $key => $value)
+                                        @if($key === $item->group_id)
+                                            Новых задач - {{ $value }}
+                                        @endif
+                                    @endforeach
                                 </div>
                             </li>
                         @empty
