@@ -5,9 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $user_id
+ * @property int $role_id
+ * @property int $group_id
+ *
+ */
+
 class GroupToUser extends Model
 {
     const ADMIN = 1;
+    const MODER = 2;
+    const USER = 3;
 
     protected $table = 'group_to_user';
 
@@ -28,8 +37,18 @@ class GroupToUser extends Model
         return $this->belongsTo(Group::class);
     }
 
-    public function admin()
+    public function adminRole()
     {
         return self::ADMIN;
+    }
+
+    public function moderRole()
+    {
+        return self::MODER;
+    }
+
+    public function userRole()
+    {
+        return self::USER;
     }
 }

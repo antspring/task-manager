@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('executor_id')->constrained('users');
-            $table->foreignId('creator_id')->constrained('users');
+            $table->foreignId('executor_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('creator_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->text('description');
-            $table->foreignId('status_id')->constrained('status');
-            $table->foreignId('priority_id')->constrained('priority');
-            $table->foreignId('group_id')->constrained('groups');
+            $table->foreignId('status_id')->constrained('status')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('priority_id')->constrained('priority')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('group_id')->constrained('groups')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

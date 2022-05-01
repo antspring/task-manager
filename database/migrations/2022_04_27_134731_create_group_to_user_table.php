@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('group_to_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('role_id')->constrained('roles');
-            $table->foreignId('group_id')->constrained('groups');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('group_id')->constrained('groups')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
