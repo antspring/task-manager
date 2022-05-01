@@ -43,7 +43,7 @@
                 <form class="profile__form" action="#" method="post">
                     <div class="profile__image">
                         <div class="profile__image-inner">
-                            <img src="{{asset('images\avatarka.jpg')}}" alt="">
+                            <img src="{{asset($user->image )}}" alt="">
                             <div class="upload-avatar__overlay">
                                 <label for="image-upload">Загрузить фото</label>
                                 <input id="image-upload" name="image" type="file">
