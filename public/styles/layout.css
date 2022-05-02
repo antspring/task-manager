@@ -265,6 +265,9 @@ main {
 
 .header__profile-image img {
     border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
 }
 
 .header__profile-more {

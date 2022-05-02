@@ -24,7 +24,7 @@
                 <div class="projects">
                     <ul class="projects__list">
                         @forelse ($groupToUser as $item)
-                            <li class="project__item">
+                            <li class="project__item" data-id="{{$item->id}}">
                                 <p class="project__name">{{ $item->group->name }}</p>
                                 <div class="project__desc">
                                     <div class="project-indicator success"></div>
@@ -40,14 +40,23 @@
                                 <p class="project__name">У вас нет проектов</p>
                             </li>
                         @endforelse
+                        <div class="project__actions">
+                            <form action="#" method="post">
+                                <button>
+                                    <object data="images/trash.svg" type=""></object>
+                                    Удалить</button>
+                            </form>
+                        </div>
                     </ul>
                 </div>
             </div>
             <div class="my-profile">
-                <form class="profile__form" action="#" method="post">
+                <form class="profile__form" action="{{route('user-profile-information.update')}}" method="post" enctype="multipart/form-data">
+                    @method('PUT')
+                    @csrf
                     <div class="profile__image">
                         <div class="profile__image-inner">
-                            <img src="{{asset($user->image )}}" alt="">
+                            <img src="{{asset('storage/'.$user->image)}}" alt="">
                             <div class="upload-avatar__overlay">
                                 <label for="image-upload">Загрузить фото</label>
                                 <input id="image-upload" name="image" type="file">
@@ -55,9 +64,8 @@
                         </div>
                     </div>
                     <div class="form__input-list">
-                        <input id="name" disabled value="{{ $user->name }}" name="name" type="text" class="form-control profile__form-input" placeholder="name">
-                        <input disabled value="{{ $user->login }}" name="nick_name" type="text" class="form-control profile__form-input" placeholder="nickname">
-                        <input disabled value="as@mail.com" name="email" type="text" class="form-control profile__form-input" placeholder="email">
+                        <input disabled id="name" value="{{ $user->name }}" name="name" type="text" class="form-control profile__form-input" placeholder="name">
+                        <input disabled value="{{ $user->login }}" name="login" type="text" class="form-control profile__form-input" placeholder="login">
                     </div>
                     <input class="btn btn-primary profile-btn" type="button" value="Изменить">
                 </form>
