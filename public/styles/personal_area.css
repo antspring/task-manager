@@ -85,6 +85,7 @@
 }
 
 .project__item {
+    color: unset;
     height: 40px;
     padding: 10px 20px;
     display: -webkit-box;

@@ -15,7 +15,7 @@ class TaskController extends Controller
         $groupToUser = new GroupToUser();
 
         $groupToUser->user_id = $request->user()->id;
-        $groupToUser->role_id = $groupToUser->adminRole();
+        $groupToUser->role_id = $groupToUser::ADMIN;
         $groupToUser->group_id = $group->id;
 
         $groupToUser->save();

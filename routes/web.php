@@ -23,4 +23,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/personal-area', [HomeController::class, 'personalArea'])->name('personal-area');
 
     Route::post('/create-project', [TaskController::class, 'createProject'])->name('create-project');
+
+    Route::get('/project/{id}', [HomeController::class, 'index'])->name('project');
 });

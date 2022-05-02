@@ -22,9 +22,9 @@
                     </div>
                 </div>
                 <div class="projects">
-                    <ul class="projects__list">
+                    <div class="projects__list">
                         @forelse ($groupToUser as $item)
-                            <li class="project__item">
+                            <a href="{{ route('project', $item->group_id )}}" class="project__item">
                                 <p class="project__name">{{ $item->group->name }}</p>
                                 <div class="project__desc">
                                     <div class="project-indicator success"></div>
@@ -34,13 +34,13 @@
                                         @endif
                                     @endforeach
                                 </div>
-                            </li>
+                            </a>
                         @empty
-                            <li class="project__item">
+                            <div class="project__item">
                                 <p class="project__name">У вас нет проектов</p>
-                            </li>
+                            </div>
                         @endforelse
-                    </ul>
+                    </div>
                 </div>
             </div>
             <div class="my-profile">

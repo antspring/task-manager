@@ -5,9 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $status
+ */
+
 class Task extends Model
 {
     const NEW_TASK = 1;
+    const WORK_TASK = 2;
+    const CONSIDERED_TASK = 3;
+    const DONE_TASK = 4;
+
+    const HIGH_PRIORITY = 1;
+    const MEDIUM_PRIORITY = 2;
+    const LOW_PRIORITY = 3;
 
     protected $fillable = [
         'executor_id',
@@ -21,31 +32,40 @@ class Task extends Model
 
     public function executor()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function creator()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function status()
     {
-        $this->belongsTo(Status::class);
+        return $this->belongsTo(Status::class);
     }
 
     public function priority()
     {
-        $this->belongsTo(Priority::class);
+        return $this->belongsTo(Priority::class);
     }
 
     public function group()
     {
-        $this->belongsTo(Group::class);
+        return $this->belongsTo(Group::class);
     }
 
-    public function newTask()
+    public function getPriority()
     {
-        return self::NEW_TASK;
+        return [
+            self::HIGH_PRIORITY => 'Высокий',
+            self::MEDIUM_PRIORITY => 'Средний',
+            self::LOW_PRIORITY => 'Низкий',
+        ];
+    }
+
+    public function getPriorityText()
+    {
+        return $this->getPriority()[$this->priority_id];
     }
 }

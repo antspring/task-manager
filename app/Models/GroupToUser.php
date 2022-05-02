@@ -36,19 +36,4 @@ class GroupToUser extends Model
     {
         return $this->belongsTo(Group::class);
     }
-
-    public function adminRole()
-    {
-        return self::ADMIN;
-    }
-
-    public function moderRole()
-    {
-        return self::MODER;
-    }
-
-    public function userRole()
-    {
-        return self::USER;
-    }
 }

@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Priority extends Model
 {
-    protected $table = ['priority'];
+    protected $table = 'priority';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'color'];
 
-    public function tasks()
+    public function task()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Task::class, 'id');
     }
 }
