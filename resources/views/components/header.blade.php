@@ -17,7 +17,7 @@
         <div class="header_separator"></div>
         <div class="header__profile">
             <div class="header__profile-image">
-                <img src="{{asset('images\Ellipse 1.jpg')}}" alt="">
+                <img src="{{asset('storage/'.$user->image)}}" alt="">
             </div>
             <p class="header__profile-name">{{ $user->name }}</p>
             <div class="header__profile-more">

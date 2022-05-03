@@ -6,7 +6,25 @@ $('.create-project__btn').click(function() {
 
 
 $('.profile-btn').click(function (e) {
-    e.preventDefault()
+
+    if ($(this).hasClass('btn-primary')) e.preventDefault()
+
     $(this).attr('type','submit').removeClass('btn-primary').addClass('btn-success').val('Подтвердить')
     $('.profile__form-input').removeAttr('disabled')
+})
+
+$('.project__item').on("contextmenu",function (e) {
+    e.preventDefault()
+
+    console.log($(this).attr('data-id'));
+
+    let x = e.pageX;
+    let y = e.pageY;
+
+    $('.project__actions').addClass('active').css({left:x,top:y+20+"px"});
+
+})
+
+$(window).on("click", function (){
+    $('.project__actions').removeClass("active")
 })
