@@ -53,6 +53,8 @@ class HomeController extends Controller
 
     public function personalArea(Request $request)
     {
+        $newTasks = null;
+
         $groupToUser = GroupToUser::with('user')->where('user_id', $request->user()->id)->get();
 
         $tasks = Task::where('executor_id', $request->user()->id)->where('status_id', Task::NEW_TASK)->get();

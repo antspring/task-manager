@@ -94,6 +94,7 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    color: unset;
 }
 
 .project__item:nth-child(odd) {
