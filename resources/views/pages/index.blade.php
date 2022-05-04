@@ -4,7 +4,7 @@
     <!-- MAIN BEGIN -->
     <main>
         <div class="task-top">
-            <h1 class="headline-1">{{ $groupName}}</h1>
+            <h1 class="headline-1">{{ $groupName->name}}</h1>
             <div class="panel">
                 <div class="panel__button-block">
                     <button id="create-task__btn" class=" panel-btn add-task ">Добавить задачу</button>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="tasks">
-            @foreach($statuses as $status)
+            @forelse($statuses as $status)
             <div class="tasks__status ">
                 <div class="head-status ">
                     <h2 class="headline-3 second-color">{{ $status[0]->status->name }}</h2>
@@ -90,7 +90,9 @@
                     @endforeach
                 </div>
             </div>
-            @endforeach
+            @empty
+                <p>У вас нет задач</p>
+            @endforelse
         </div>
     </main>
     <!-- TASK-MODAL -->

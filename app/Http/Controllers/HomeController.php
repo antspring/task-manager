@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function index($id, Request $request){
-        $groupName = '';
+        $groupName = Group::where('id', $id)->first();
         $statuses = [];
 
         $tasks = Task::where('executor_id', $request->user()->id)->where('group_id', $id)->orderBy('status_id')->get();
@@ -38,13 +38,8 @@ class HomeController extends Controller
                 }
             }
 
-            // TODO: насрано, надо испрввить
 
-            $groupName = $tasks[0]->group->name;
-        }
-        else{
 
-            return view('pages.index', compact('statuses','groupName'));
         }
 
 

@@ -27,7 +27,7 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
             public function toResponse($request)
             {
-                return redirect()->route('personal-area');
+                return redirect()->route('register');
             }
         });
     }
@@ -62,13 +62,6 @@ class FortifyServiceProvider extends ServiceProvider
             return view('pages.login');
         });
 
-//        Fortify::authenticateUsing(function (Request $request) {
-//            $user = User::where('login', $request->login)->first();
-//
-//            if ($user && Hash::check($request->password, $user->password)) {
-//                return $user;
-//            }
-//        });
 
     }
 }
