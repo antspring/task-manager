@@ -10,40 +10,21 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index($id, Request $request){
-        $groupName = Group::where('id', $id)->first();
-        $statuses = [];
+    public function index($id, Request $request)
+    {
+        $group = Group::where('id', $id)->first();
 
-        $tasks = Task::where('executor_id', $request->user()->id)->where('group_id', $id)->orderBy('status_id')->get();
+        $tasks = Task::where('executor_id', $request->user()->id)->where('group_id', $id)->orderBy('id', 'desc')->with('status');
 
-        if (isset($tasks[0])){
-            for ($i = 0; $i < $tasks[0]->status->count(); $i++){
+        $newTasks = $tasks->where('status_id', Task::NEW_TASK)->get();
 
-                switch ($i){
-                    case 0:
-                        $statuses[$i] = $tasks[$i]->with('status')->where('status_id', Task::NEW_TASK)->get();
-                        break;
+        $workTasks = $tasks->where('status_id', Task::WORK_TASK)->get();
 
-                    case 1:
-                        $statuses[$i] = $tasks[$i]->with('status')->where('status_id', Task::WORK_TASK)->get();
-                        break;
+        $consideredTask = $tasks->where('status_id', Task::CONSIDERED_TASK)->get();
 
-                    case 2:
-                        $statuses[$i] = $tasks[$i]->with('status')->where('status_id', Task::CONSIDERED_TASK)->get();
-                        break;
+        $doneTasks = $tasks->where('status_id', Task::DONE_TASK)->get();
 
-                    case 3:
-                        $statuses[$i] = $tasks[$i]->with('status')->where('status_id', Task::DONE_TASK)->get();
-                        break;
-                }
-            }
-
-
-
-        }
-
-
-        return view('pages.index', compact('statuses', 'groupName'));
+        return view('pages.index', compact('newTasks', 'workTasks', 'consideredTask', 'doneTasks','group'));
     }
 
     public function personalArea(Request $request)

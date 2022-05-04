@@ -14,9 +14,9 @@
                                   fill="#7775F8"/>
                         </svg>
                         <p>Создать проект</p>
-                        <form class="create-project__form" action="{{ route('create-project') }}" method="post">
+                        <form class="create-project__form" action="{{ route('create-group') }}" method="post">
                             @csrf
-                            <input class="form-control" type="text" name="project_name" placeholder="Название проекта">
+                            <input class="form-control" type="text" name="group_name" placeholder="Название проекта">
                             <button class="btn btn-success" type="submit">Подтвердить</button>
                         </form>
                     </div>

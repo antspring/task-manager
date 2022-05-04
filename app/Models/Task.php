@@ -16,9 +16,9 @@ class Task extends Model
     const CONSIDERED_TASK = 3;
     const DONE_TASK = 4;
 
-    const HIGH_PRIORITY = 1;
+    const LOW_PRIORITY= 1;
     const MEDIUM_PRIORITY = 2;
-    const LOW_PRIORITY = 3;
+    const HIGH_PRIORITY= 3;
 
     protected $fillable = [
         'executor_id',

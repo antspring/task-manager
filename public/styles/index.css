@@ -196,15 +196,15 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
 }
 
 .date-task svg {
     height: 14px;
     width: 14px;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .date-task svg path {

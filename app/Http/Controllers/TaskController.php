@@ -4,21 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\GroupToUser;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function createProject(Request $request)
+    public function createTask(Request $request)
     {
-        $group = Group::create(['name' => $request->project_name]);
+        $executor = User::where('login', $request->executor)->first();
 
-        $groupToUser = new GroupToUser();
+        $data = [
+            'executor_id' => $executor->id,
+            'creator_id' => $request->user()->id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'status_id' => Task::NEW_TASK,
+            'priority_id' => Task::LOW_PRIORITY,
+            'group_id' => $request->group_id
+        ];
 
-        $groupToUser->user_id = $request->user()->id;
-        $groupToUser->role_id = $groupToUser::ADMIN;
-        $groupToUser->group_id = $group->id;
-
-        $groupToUser->save();
+        Task::create($data);
 
         return back();
     }
