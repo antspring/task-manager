@@ -26,4 +26,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/project/{id}', [HomeController::class, 'index'])->name('project');
 
     Route::post('/create-task', [TaskController::class, 'createTask'])->name('create-task');
+
+    Route::get('/search-users',[TaskController::class,'searchUsers'])->name('search.users');
 });
