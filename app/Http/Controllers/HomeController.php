@@ -12,17 +12,34 @@ class HomeController extends Controller
 {
     public function index($id, Request $request)
     {
+        $newTasks = [];
+        $workTasks = [];
+        $consideredTask = [];
+        $doneTasks = [];
+
         $group = Group::where('id', $id)->first();
 
-        $tasks = Task::where('executor_id', $request->user()->id)->where('group_id', $id)->orderBy('id', 'desc')->with('status');
+        $tasks = Task::where('executor_id', $request->user()->id)->where('group_id', $id)->orderBy('id', 'desc')->with('status')->get();
 
-        $newTasks = $tasks->where('status_id', Task::NEW_TASK)->get();
+        foreach ($tasks as $task) {
+            switch ($task->status_id){
+                case Task::NEW_TASK:
+                    $newTasks[] = $task;
+                    break;
 
-        $workTasks = $tasks->where('status_id', Task::WORK_TASK)->get();
+                case Task::WORK_TASK:
+                    $workTasks[] = $task;
+                    break;
 
-        $consideredTask = $tasks->where('status_id', Task::CONSIDERED_TASK)->get();
+                case Task::CONSIDERED_TASK:
+                    $consideredTask[] = $task;
+                    break;
 
-        $doneTasks = $tasks->where('status_id', Task::DONE_TASK)->get();
+                case Task::DONE_TASK:
+                    $doneTasks[] = $task;
+                    break;
+            }
+        }
 
         return view('pages.index', compact('newTasks', 'workTasks', 'consideredTask', 'doneTasks','group'));
     }

@@ -27,7 +27,7 @@
                 <div class="tasks__status ">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">Новые задачи</h2>
-                        <span class="status-count">{{ $newTasks->count() }}</span>
+                        <span class="status-count">{{ count($newTasks) }}</span>
                     </div>
                     <div class="content-tasks ">
                         <div data-target="0 " class="hover-block ">
@@ -92,7 +92,7 @@
                 <div class="tasks__status ">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">В работе</h2>
-                        <span class="status-count">{{ $workTasks->count() }}</span>
+                        <span class="status-count">{{ count($workTasks) }}</span>
                     </div>
                     <div class="content-tasks ">
                         <div data-target="0 " class="hover-block ">
@@ -157,7 +157,7 @@
                 <div class="tasks__status ">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">Рассматриваются</h2>
-                        <span class="status-count">{{ $consideredTask->count() }}</span>
+                        <span class="status-count">{{ count($consideredTask) }}</span>
                     </div>
                     <div class="content-tasks ">
                         <div data-target="0 " class="hover-block ">
@@ -222,7 +222,7 @@
                 <div class="tasks__status new-task">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">Выполнено</h2>
-                        <span class="status-count">{{ $doneTasks->count() }}</span>
+                        <span class="status-count">{{ count($doneTasks) }}</span>
                     </div>
                     <div class="content-tasks ">
                         <div data-target="0 " class="hover-block ">
