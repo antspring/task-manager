@@ -354,9 +354,9 @@
 
         <form class="create-task__form" action="{{ route('create-task') }}" method="POST">
             @csrf
-            <input name="title" type="text" class="form-control create-task__input" placeholder="Введие название">
-            <input name="description" type="text" class="form-control create-task__input" placeholder="Введите описание">
-            <input name="executor" type="text" class="form-control create-task__input" placeholder="Введите ник исполнителя">
+            <input name="title" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введие название">
+            <input name="description" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введите описание">
+            <input name="executor" type="text" class="form-control create-task__input typeahead" autocomplete="off" placeholder="Введите ник исполнителя">
             <input name="group_id" value="{{ $group->id }}" type="text" hidden>
             <button class="btn btn-success create-task__btn" type="submit">Подтвердить</button>
         </form>
@@ -373,4 +373,20 @@
     <script src="{{asset('scripts/plugins/jquery.nice-select.min.js')}}"></script>
     <script src="{{asset('scripts/plugins/jquery-ui.js')}}"></script>
     <script src="{{asset('scripts/index.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+    <script>
+        const path = "{{route("search.users")}}"
+        const groupId = "{{$group->id}}"
+        $(".typeahead").typeahead({
+            display: 'login',
+            source:function (query,process)  {
+                return $.get(path,{query:query,groupId:groupId}, function (data) {
+                    return process(data);
+                })
+            },
+            displayText: function (data) {
+                return data.login
+            }
+        })
+    </script>
 @endpush

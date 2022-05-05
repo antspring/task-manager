@@ -55,4 +55,17 @@ class TaskController extends Controller
 
         return back();
     }
+
+    public function searchUsers(Request $request)
+    {
+        $result= [];
+
+        $groupToUsers = GroupToUser::where('group_id',$request->groupId)->get();
+
+        foreach ($groupToUsers as $user) {
+            $result[] = User::where('id',$user->user_id)->first();
+        }
+
+        return response()->json($result);
+    }
 }
