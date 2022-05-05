@@ -19,7 +19,7 @@ class HomeController extends Controller
 
         $group = Group::where('id', $id)->first();
 
-        $tasks = Task::where('executor_id', $request->user()->id)->where('group_id', $id)->orderBy('id', 'desc')->with('status')->get();
+        $tasks = Task::where('group_id', $id)->orderBy('id', 'desc')->with('status')->get();
 
         foreach ($tasks as $task) {
             switch ($task->status_id){

@@ -56,7 +56,7 @@
                                                         <rect width="14 " height="14 " fill="white " transform="translate(0 0.5) "/>
                                                     </clipPath>
                                                 </defs>
-                                            </svg>{{ $task->creator->login }}
+                                            </svg>{{ $task->executor->login }}
                                         </div>
                                         <div class="creator-info__tel ">
                                             +7 (999) 124 12 24
@@ -121,7 +121,7 @@
                                                         <rect width="14 " height="14 " fill="white " transform="translate(0 0.5) "/>
                                                     </clipPath>
                                                 </defs>
-                                            </svg>{{ $task->creator->login }}
+                                            </svg>{{ $task->executor->login }}
                                         </div>
                                         <div class="creator-info__tel ">
                                             +7 (999) 124 12 24
@@ -186,7 +186,7 @@
                                                         <rect width="14 " height="14 " fill="white " transform="translate(0 0.5) "/>
                                                     </clipPath>
                                                 </defs>
-                                            </svg>{{ $task->creator->login }}
+                                            </svg>{{ $task->executor->login }}
                                         </div>
                                         <div class="creator-info__tel ">
                                             +7 (999) 124 12 24
@@ -251,7 +251,7 @@
                                                         <rect width="14 " height="14 " fill="white " transform="translate(0 0.5) "/>
                                                     </clipPath>
                                                 </defs>
-                                            </svg>{{ $task->creator->login }}
+                                            </svg>{{ $task->executor->login }}
                                         </div>
                                         <div class="creator-info__tel ">
                                             +7 (999) 124 12 24
