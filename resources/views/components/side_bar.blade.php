@@ -3,10 +3,10 @@
     <div class="side-bar__top">
         <div class="side-bar__logo">
             <div class="qwerty">
-
+                <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('storage/'.$user->image) }}" alt="">
             </div>
             <p class="side-bar__logo-name">
-                Dvizh nethummer
+                {{ $user->name }}
             </p>
         </div>
         <ul class="side-bar__list">

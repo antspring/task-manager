@@ -23,6 +23,12 @@ Route::middleware('auth')->group(function (){
 
     Route::post('/create-group', [GroupController::class, 'createGroup'])->name('create-group');
 
+    Route::get('/get-task', [TaskController::class, 'getTask'])->name('get-task');
+
+    Route::put('/update-task', [TaskController::class, 'UpdateTask'])->name('update-task');
+
+    Route::delete('/delete-task', [TaskController::class, 'deleteTask'])->name('delete-task');
+
     Route::get('/project/{id}', [HomeController::class, 'index'])->name('project');
 
     Route::post('/create-task', [TaskController::class, 'createTask'])->name('create-task');

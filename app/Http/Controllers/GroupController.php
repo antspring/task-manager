@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\GroupToUser;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller

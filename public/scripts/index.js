@@ -32,7 +32,16 @@ $('.task').draggable({
 
 
 // modal task more
-$('.task-modal__btn').click(function() {
+$('.task-modal__btn').click(function(e) {
+    const id = e.target.parentElement.parentElement.id;
+
+    $.get('/get-task', { task_id: id }).done((response) => {
+        $('#task-modal__name').text(response.title);
+        $('#task-modal__description').text(response.description);
+
+        $(`input[name='task_id']`).val(response.id);
+    });
+
     $('.modal__overlay').fadeIn(150, function() {
         $('.task-modal')
             .css('display', 'block')

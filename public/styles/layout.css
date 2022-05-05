@@ -135,6 +135,7 @@ main {
     transition: .7s ease;
     border-right: 1px solid #D3D3D3;
     background-color: white;
+    position: fixed;
 }
 
 .side-bar__top {
@@ -147,21 +148,23 @@ main {
 }
 
 .side-bar__logo {
-    padding: 20px 0px 20px 3px;
+    padding: 13px 0px 13px 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .qwerty {
     width: 42px;
     height: 42px;
-    background-color: #434A85;
+    background-color: white;
+    overflow: hidden;
     border-radius: 50%;
     margin-right: 15px;
+    border: 2px solid #7775F8;
 }
 
 .side-bar__item {
@@ -216,6 +219,7 @@ main {
 }
 
 .container {
+    margin-left: 260px;
     width: 100%;
 }
 

@@ -28,4 +28,31 @@ class TaskController extends Controller
 
         return back();
     }
+
+    public function getTask(Request $request)
+    {
+        $task = Task::where('id', $request->task_id)->first();
+
+        return response()->json($task);
+    }
+
+    public function updateTask(Request $request)
+    {
+        $data = $request->all();
+
+        $task = Task::find($data['task_id']);
+
+        $task->update($data);
+
+        return back();
+    }
+
+    public function deleteTask(Request $request)
+    {
+        $task = Task::where('id', $request->task_id)->first();
+
+        $task->delete();
+
+        return back();
+    }
 }
