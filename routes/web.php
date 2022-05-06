@@ -19,6 +19,10 @@ use \App\Http\Controllers\TaskController;
 
 Route::middleware('auth')->group(function (){
 
+    Route::get('/',function () {
+        return redirect()->route('personal-area');
+    });
+
     Route::get('/personal-area', [HomeController::class, 'personalArea'])->name('personal-area');
 
     Route::post('/create-group', [GroupController::class, 'createGroup'])->name('create-group');

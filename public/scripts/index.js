@@ -1,7 +1,9 @@
 
-$('.task').each(function() {
-    $(this).css({ top: $(this).parent().offset().top, left: $(this).parent().offset().left })
-});
+$(document).ready(function () {
+    $('.task').each(function() {
+        $(this).css({top: $(this).parent().offset().top, left: $(this).parent().offset().left,width: $(this).parent().width()+2})
+    });
+})
 
 $('.hover-block').droppable();
 $('.task').draggable({
@@ -81,4 +83,12 @@ $('.modal__overlay, .close-modal').click(function() {
 // custom select
 $( document ).ready(function() {
     $('.custom-select').niceSelect();
+});
+
+
+window.addEventListener('resize', (e) => {
+    $('.task').each(function() {
+        $(this).css({top: $(this).parent().offset().top, left: $(this).parent().offset().left,width: $(this).parent().width()+2})
+        console.log($(this).parent().width())
+    });
 });

@@ -135,7 +135,7 @@
 }
 
 .task-parent {
-    width: 380px;
+    width: 100%;
     height: 146px;
     background: #E6E6E6;
     border: 1px dashed #000000;
@@ -211,19 +211,19 @@
     fill: #7775F8;
 }
 
-.new-task svg path {
+.completed-task svg path {
     fill: #0FBF4B;
 }
 
-.new-task .status-task {
+.completed-task .status-task {
     background-color: #0FBF4B;
 }
 
-.new-task .creator-info__tel {
+.completed-task .creator-info__tel {
     color: #808080;
 }
 
-.new-task .date-task {
+.completed-task .date-task {
     color: #808080;
 }
 

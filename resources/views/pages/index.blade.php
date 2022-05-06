@@ -219,7 +219,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="tasks__status new-task">
+                <div class="tasks__status completed-task">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">Выполнено</h2>
                         <span class="status-count">{{ count($doneTasks) }}</span>
@@ -356,7 +356,7 @@
             @csrf
             <input name="title" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введие название">
             <input name="description" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введите описание">
-            <input name="executor" type="text" class="form-control create-task__input typeahead" autocomplete="off" placeholder="Введите ник исполнителя">
+            <input id="search-people" name="executor" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введите ник исполнителя">
             <input name="group_id" value="{{ $group->id }}" type="text" hidden>
             <button class="btn btn-success create-task__btn" type="submit">Подтвердить</button>
         </form>
@@ -377,7 +377,7 @@
     <script>
         const path = "{{route("search.users")}}"
         const groupId = "{{$group->id}}"
-        $(".typeahead").typeahead({
+        $("#search-people").typeahead({
             display: 'login',
             source:function (query,process)  {
                 return $.get(path,{query:query,groupId:groupId}, function (data) {
