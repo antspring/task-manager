@@ -27,9 +27,9 @@
                 <div class="tasks__status ">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">Новые задачи</h2>
-                        <span class="status-count">{{ count($newTasks) }}</span>
+                        <span data-status-id="1" class="status-count">{{ count($newTasks) }}</span>
                     </div>
-                    <div class="content-tasks ">
+                    <div data-status-id="1" class="content-tasks ">
                         <div data-target="0 " class="hover-block ">
                         </div>
                         @foreach($newTasks as $task)
@@ -92,9 +92,9 @@
                 <div class="tasks__status ">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">В работе</h2>
-                        <span class="status-count">{{ count($workTasks) }}</span>
+                        <span data-status-id="2" class="status-count">{{ count($workTasks) }}</span>
                     </div>
-                    <div class="content-tasks ">
+                    <div data-status-id="2" class="content-tasks ">
                         <div data-target="0 " class="hover-block ">
                         </div>
                         @foreach($workTasks as $task)
@@ -157,9 +157,9 @@
                 <div class="tasks__status ">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">Рассматриваются</h2>
-                        <span class="status-count">{{ count($consideredTask) }}</span>
+                        <span data-status-id="3" class="status-count">{{ count($consideredTask) }}</span>
                     </div>
-                    <div class="content-tasks ">
+                    <div data-status-id="3" class="content-tasks ">
                         <div data-target="0 " class="hover-block ">
                         </div>
                         @foreach($consideredTask as $task)
@@ -222,9 +222,9 @@
                 <div class="tasks__status completed-task">
                     <div class="head-status ">
                         <h2 class="headline-3 second-color">Выполнено</h2>
-                        <span class="status-count">{{ count($doneTasks) }}</span>
+                        <span data-status-id="4" class="status-count">{{ count($doneTasks) }}</span>
                     </div>
-                    <div class="content-tasks ">
+                    <div data-status-id="4" class="content-tasks ">
                         <div data-target="0 " class="hover-block ">
                         </div>
                         @foreach($doneTasks as $task)

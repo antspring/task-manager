@@ -68,4 +68,11 @@ class TaskController extends Controller
 
         return response()->json($result);
     }
+
+    public function changeStatus(Request $request)
+    {
+        $task = Task::findOrFail($request->task_id);
+
+        $task->update(['status_id' => $request->status_id]);
+    }
 }
