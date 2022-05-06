@@ -336,11 +336,14 @@
         <div class="addpeople-modal__head ">
             <h2 class="headline-3 ">Добавить людей</h2>
         </div>
-        <form class="addpeople-form " action="#" method="post">
+        <form class="addpeople-form" action="{{route("addUser")}}" method="post">
+            @csrf
             <div class="addpeople-form__input ">
-                <input class="form-control" type="text" placeholder="Введите ник ">
+                <input autocomplete="off" id="search-all-users" name="login" class="form-control" type="text" placeholder="Введите Логин">
+                <span class="text-danger"></span>
+                <input name="group_id" value="{{$group->id}}" type="hidden">
             </div>
-            <button class="btn btn-success addpeople__btn " type="button">Добавить человека</button>
+            <button class="btn btn-success addpeople__btn " type="submit">Добавить человека</button>
         </form>
     </div>
     <!-- ADDPEOPLE-MODAL END-->
@@ -374,19 +377,41 @@
     <script src="{{asset('scripts/plugins/jquery-ui.js')}}"></script>
     <script src="{{asset('scripts/index.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
-    <script>
-        const path = "{{route("search.users")}}"
-        const groupId = "{{$group->id}}"
-        $("#search-people").typeahead({
-            display: 'login',
-            source:function (query,process)  {
-                return $.get(path,{query:query,groupId:groupId}, function (data) {
-                    return process(data);
-                })
-            },
-            displayText: function (data) {
-                return data.login
-            }
-        })
+    <script type="text/javascript">
+        function searchGroupUsers() {
+            let path = "{{route("search.group.users")}}"
+            let groupId = "{{$group->id}}"
+            $("#search-people").typeahead({
+                display: 'login',
+                source:function (query,process)  {
+                    return $.get(path,{query:query,groupId:groupId}, function (data) {
+                        return process(data);
+                    })
+                },
+                displayText: function (data) {
+                    return data.login
+                }
+            })
+        }
+        searchGroupUsers();
+    </script>
+
+    <script type="text/javascript">
+        function searchAllUsers() {
+            let path = "{{route("search.all.users")}}";
+            let groupId = "{{$group->id}}"
+            $("#search-all-users").typeahead({
+                display: 'login',
+                source:function (query,process)  {
+                    return $.get(path,{query:query,groupId:groupId}, function (data) {
+                        return process(data);
+                    })
+                },
+                displayText: function (data) {
+                    return data.login
+                }
+            })
+        }
+        searchAllUsers();
     </script>
 @endpush

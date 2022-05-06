@@ -75,6 +75,9 @@
     color: #434A85;
 }
 
+.text-danger {
+    color: #CE3166;
+}
 .panel__select-order {
     /* for Firefox */
     -moz-appearance: none;

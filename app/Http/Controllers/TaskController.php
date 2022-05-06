@@ -56,7 +56,7 @@ class TaskController extends Controller
         return back();
     }
 
-    public function searchUsers(Request $request)
+    public function searchGroupUsers(Request $request)
     {
         $result= [];
 

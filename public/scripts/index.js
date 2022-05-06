@@ -89,6 +89,23 @@ $( document ).ready(function() {
 window.addEventListener('resize', (e) => {
     $('.task').each(function() {
         $(this).css({top: $(this).parent().offset().top, left: $(this).parent().offset().left,width: $(this).parent().width()+2})
-        console.log($(this).parent().width())
     });
 });
+
+$(".addpeople-form").on("submit",function (e) {
+    e.preventDefault();
+    $.ajax({
+        url:"/add-user",
+        type: "post",
+        data: $(".addpeople-form").serializeArray(),
+        success:function (data) {
+            $(".addpeople-form input").val("").parent().find("span").text("");
+        },
+        error:function (err) {
+            let {errors} = err.responseJSON;
+            for (let key in errors) {
+                $(`input[name="${key}"]`).parent().find('span').text(errors[key])
+            }
+        }
+    })
+})
