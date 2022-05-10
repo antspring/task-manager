@@ -44,4 +44,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/search-all-users',[GroupController::class,'searchUsers'])->name("search.all.users");
 
     Route::post("/add-user",[GroupController::class,'addUserToProject'])->name("addUser");
+
+    Route::get('/search-tasks', [TaskController::class, 'searchTasks'])->name('search-tasks');
 });

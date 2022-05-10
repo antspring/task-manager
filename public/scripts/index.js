@@ -128,4 +128,21 @@ $(document).ready(function () {
         });
     });
 
+    $('.panel__search-btn').on('keypress', function (e){
+        if (e.which === 13){
+            $('.task').removeClass('task-focus');
+            if (e.target.value !== ''){
+                $.get('/search-tasks', { title_task: e.target.value}).done((response) => {
+                    response.forEach((item) => {
+                        $(`div[id=${item.id}]`).addClass('task-focus');
+                    });
+                });
+            }
+        }
+    }).on('input', function (e){
+        if (e.target.value === ''){
+            $('.task').removeClass('task-focus');
+        }
+    })
+
 })
