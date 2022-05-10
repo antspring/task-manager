@@ -67,6 +67,7 @@
                     <div class="form__input-list">
                         <input disabled id="name" value="{{ $user->name }}" name="name" type="text" class="form-control profile__form-input" placeholder="name">
                         <input disabled value="{{ $user->login }}" name="login" type="text" class="form-control profile__form-input" placeholder="login">
+                        <input disabled value="{{ $user->info }}" name="info" type="text" class="form-control profile__form-input" placeholder="telegram/telephone">
                     </div>
                     <input class="btn btn-primary profile-btn" type="button" value="Изменить">
                 </form>
