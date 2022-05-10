@@ -14,7 +14,7 @@ class TaskController extends Controller
     {
         $executor = User::where('login', $request->executor)->first();
 
-        $data = [
+        Task::create([
             'executor_id' => $executor->id,
             'creator_id' => $request->user()->id,
             'title' => $request->title,
@@ -22,9 +22,7 @@ class TaskController extends Controller
             'status_id' => Task::NEW_TASK,
             'priority_id' => Task::LOW_PRIORITY,
             'group_id' => $request->group_id
-        ];
-
-        Task::create($data);
+        ]);
 
         return back();
     }

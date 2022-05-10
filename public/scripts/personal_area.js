@@ -16,8 +16,6 @@ $('.profile-btn').click(function (e) {
 $('.project__item').on("contextmenu",function (e) {
     e.preventDefault()
 
-    console.log($(this).attr('data-id'));
-
     let x = e.pageX;
     let y = e.pageY;
 
@@ -25,6 +23,6 @@ $('.project__item').on("contextmenu",function (e) {
 
 })
 
-$(window).on("click", function (){
+$(window).click(function () {
     $('.project__actions').removeClass("active")
 })
