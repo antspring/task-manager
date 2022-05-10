@@ -22,6 +22,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'login' => ['required', 'max:255'],
+            'info' => ['string'],
             'image' => ['image'],
         ])->validateWithBag('updateProfileInformation');
 
@@ -40,6 +41,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'name' => $input['name'],
             'login' => $input['login'],
+            'info' => str_replace(['(', ')', '-'], '', $input['info']),
             'image' => $input['image'],
         ])->save();
     }

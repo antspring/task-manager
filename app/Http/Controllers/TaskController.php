@@ -72,4 +72,9 @@ class TaskController extends Controller
 
         $task->update(['status_id' => $request->status_id]);
     }
+
+    public function searchTasks(Request $request)
+    {
+        return Task::where('title', 'LIKE', "%{$request->title_task}%")->get();
+    }
 }

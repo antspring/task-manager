@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('executor_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('creator_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->foreignId('status_id')->constrained('status')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('priority_id')->constrained('priority')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('group_id')->constrained('groups')->cascadeOnDelete()->cascadeOnUpdate();

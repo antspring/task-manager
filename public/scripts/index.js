@@ -1,3 +1,9 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 $(document).ready(function () {
 
     $('.task').each(function() {
@@ -131,6 +137,23 @@ $(document).ready(function () {
         e.target.classList.add("active")
 
 
+    })
+
+    $('.panel__search-btn').on('keypress', function (e){
+        if (e.which === 13){
+            $('.task').removeClass('task-focus');
+            if (e.target.value !== ''){
+                $.get('/search-tasks', { title_task: e.target.value}).done((response) => {
+                    response.forEach((item) => {
+                        $(`div[id=${item.id}]`).addClass('task-focus');
+                    });
+                });
+            }
+        }
+    }).on('input', function (e){
+        if (e.target.value === ''){
+            $('.task').removeClass('task-focus');
+        }
     })
 
 })

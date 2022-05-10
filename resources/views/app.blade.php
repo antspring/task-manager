@@ -20,7 +20,6 @@
     @sectionMissing('register-content')
         <x-side_bar/>
         <div class="container">
-            <x-header/>
             @yield('content')
         </div>
         <div class="modal__overlay "></div>
