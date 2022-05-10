@@ -57,10 +57,10 @@
                     @csrf
                     <div class="profile__image">
                         <div class="profile__image-inner">
-                            <img src="{{asset('storage/'.$user->image)}}" alt="">
+                            <img id="output-image" src="{{asset('storage/'.$user->image)}}" alt="">
                             <div class="upload-avatar__overlay">
                                 <label for="image-upload">Загрузить фото</label>
-                                <input id="image-upload" name="image" type="file">
+                                <input onchange="loadFile(event)" id="image-upload" name="image" type="file">
                             </div>
                         </div>
                     </div>
@@ -81,4 +81,12 @@
 
 @push('scripts')
     <script src="{{asset('scripts/personal_area.js')}}"></script>
+
+    <script type="text/javascript">
+        let loadFile = function (event) {
+            let output = document.getElementById("output-image");
+            output.src = URL.createObjectURL(event.target.files[0])
+            console.log(URL.createObjectURL(event.target.files[0]))
+        }
+    </script>
 @endpush

@@ -334,12 +334,13 @@ main {
 
 /*NOTIFICATION */
 
-.success-notification{
+.notification {
     z-index: 1000;
     width: fit-content;
+    font-weight: 500;
     cursor: pointer;
     padding: 15px 30px 15px 15px;
-    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 10%);
     position: fixed;
     background: white;
     bottom: 20px;
@@ -347,10 +348,23 @@ main {
     border-radius: 4px;
     display: flex;
     align-items: center;
-    font-weight: bold;
     animation-name: notification;
-    animation-duration: .2s;
+    animation-duration: .4s;
     right: 20px;
+}
+
+.notification svg{
+    margin-right: 10px;
+}
+
+.notification::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    border-radius: 4px 0 0 4px;
+    left: 0;
+    top: 0;
 }
 
 @keyframes notification {
@@ -366,30 +380,11 @@ main {
     }
 
 }
-.success-notification svg {
-    margin-right: 10px;
-}
 
 .success-notification::before{
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 3px;
-    border-radius: 4px 0 0 4px;
-    left: 0;
-    top: 0;
     background-color: #48D865;
 }
 
-.error-notification {
-    width: fit-content;
-    background-color: #FCEDE9;
-    border: 2px solid #EAC6C2;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 10px 30px;
-    border-radius: 7px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+.error-notification::before {
+    background-color: #CE3166;
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Group;
 use App\Models\GroupToUser;
 use App\Models\Task;
 use App\Models\User;

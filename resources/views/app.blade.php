@@ -33,8 +33,8 @@
 
 
 <script src="{{asset('scripts/plugins/jquery.js')}}"></script>
-
-@stack('scripts')
 <script src="{{asset('scripts/main.js')}}"></script>
+@stack('scripts')
+
 </body>
 </html>

@@ -1,13 +1,7 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
 $(document).ready(function () {
 
     $('.task').each(function() {
-        $(this).css({top: $(this).parent().offset().top, left: $(this).parent().offset().left,width: $(this).parent().width()+2})
+        $(this).css({top: $(this).parent().offset().top, left: $(this).parent().offset().left,width: $(this).parent().width()+2});
     });
 
     // modal task more
@@ -34,17 +28,20 @@ $(document).ready(function () {
     $(".addpeople-form").on("submit",function (e) {
         e.preventDefault();
         $.ajax({
-            url:"/add-user",
+            url: $(this).attr('action'),
             type: "post",
             data: $(".addpeople-form").serializeArray(),
             success:function (data) {
                 $(".addpeople-form input").val("").parent().find("span").text("");
+
+                getSuccess();
             },
             error:function (err) {
                 let {errors} = err.responseJSON;
                 for (let key in errors) {
-                    $(`input[name="${key}"]`).parent().find('span').text(errors[key])
+                    $(`input[name="${key}"]`).parent().find('span').text(errors[key]);
                 }
+                getError();
             }
         })
     })
@@ -58,11 +55,11 @@ $(document).ready(function () {
             }
 
             event.target.classList.add('task-active');
-            $(`.status-count[data-status-id=${task.status_id}]`).text($(`div[data-status-id=${task.status_id}]`).find('.task').length - 1)
+            $(`.status-count[data-status-id=${task.status_id}]`).text($(`div[data-status-id=${task.status_id}]`).find('.task').length - 1);
         },
         drag: function(eventDrag) {
             $('.task').each(function() {
-                $(this).css({ top: $(this).parent().offset().top, left: $(this).parent().offset().left })
+                $(this).css({ top: $(this).parent().offset().top, left: $(this).parent().offset().left });
             });
             $('.hover-block').droppable({
                 over: function(eventDrop) {
@@ -86,8 +83,7 @@ $(document).ready(function () {
             }
 
             $.post('/change-status', task).done(() => {
-                $(`.status-count[data-status-id=${task.status_id}]`).text($(`div[data-status-id=${task.status_id}]`).find('.task').length)
-                // $(`.status-count[data-status-id=${parent.dataset.statusId}]`).text($(`div[data-status-id=${parent.dataset.statusId}]`).find('.task').length)
+                $(`.status-count[data-status-id=${task.status_id}]`).text($(`div[data-status-id=${task.status_id}]`).find('.task').length);
             });
         }
     });
@@ -127,5 +123,14 @@ $(document).ready(function () {
             $(this).css({top: $(this).parent().offset().top, left: $(this).parent().offset().left,width: $(this).parent().width()+2});
         });
     });
+
+    $(".nav-item").on("click",function (e) {
+
+        $(".nav-item").removeClass("active")
+
+        e.target.classList.add("active")
+
+
+    })
 
 })

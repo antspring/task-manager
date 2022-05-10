@@ -546,3 +546,35 @@
 .dropdown-item strong {
     font-weight: bold;
 }
+
+.nav{
+    margin:40px 0;
+    border-bottom: 2px solid #DEDEDE;
+    padding-bottom: 10px;
+}
+
+.nav-list{
+    display: flex;
+    position: relative;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-item.active {
+    position: relative;
+}
+.nav-item.active:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #7775F8;
+    transition: .5s;
+    bottom: -12px;
+}
+.nav-item:last-child{
+    margin-right: 0;
+}

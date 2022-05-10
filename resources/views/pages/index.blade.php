@@ -23,6 +23,15 @@
                 </div>
             </div>
         </div>
+        <div class="nav">
+            <div class="nav-inner">
+                <ul class="nav-list">
+                    <li class="nav-item active">Задачи</li>
+                    <li class="nav-item">Описание</li>
+                </ul>
+                <div class="underline"></div>
+            </div>
+        </div>
         <div class="tasks">
                 <div class="tasks__status ">
                     <div class="head-status ">
