@@ -26,8 +26,8 @@
         <div class="nav">
             <div class="nav-inner">
                 <ul class="nav-list">
-                    <li class="nav-item active">Задачи</li>
-                    <li class="nav-item">Описание</li>
+                    <li id="tasks" class="nav-item active">Задачи</li>
+                    <li id="description" class="nav-item">Описание</li>
                 </ul>
                 <div class="underline"></div>
             </div>
@@ -255,6 +255,48 @@
                     </div>
                 </div>
         </div>
+        <div class="description">
+            <div class="description__text-block">
+                <h3 class="headline-3">Описание</h3>
+                <form action="#" method="post">
+                    @csrf
+                    @method('PUT')
+                    <textarea class="description__text-area" name="description" id="" placeholder="Начните писать описание"></textarea>
+                </form>
+            </div>
+            <div class="members">
+                <h3 class="headline-3">Участники</h3>
+                <div class="members__photo">
+                    <div class="members__photo-track">
+                        <div class="photo-track-image">
+                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
+                        </div>
+                        <div class="photo-track-image">
+                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
+                        </div>
+                        <div class="photo-track-image">
+                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
+                        </div>
+                        <div class="photo-track-image">
+                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
+                        </div>
+                        <div class="photo-track-image">
+                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
+                        </div>
+                        <div class="photo-track-image">
+                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
+                        </div>
+                    </div>
+                </div>
+                <div class="task-deadline">
+                    <h3 class="headline-3">Дата создания</h3>
+                    <div class="task-deadline-date">
+                        19.05.22
+                    </div>
+                </div>
+                <button class="btn btn-primary complete-group__btn">Завершить проект</button>
+            </div>
+        </div>
     </main>
     <!-- TASK-MODAL -->
     <div class="task-modal modal">
@@ -327,10 +369,15 @@
 
         <form class="create-task__form" action="{{ route('create-task') }}" method="POST">
             @csrf
-            <input name="title" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введие название">
-            <input name="description" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введите описание">
-            <input id="search-people" name="executor" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введите ник исполнителя">
-            <input name="group_id" value="{{ $group->id }}" type="text" hidden>
+            <div class="create-task__form-inner">
+                <input name="title" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введие название">
+                    @error('title') <span class="validation-error_text">{{$message}}</span> @enderror
+                <input name="description" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введите описание">
+                    @error('description')<span class="validation-error_text">{{$message}}</span> @enderror
+                <input id="search-people" name="executor" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введите логин исполнителя">
+                    @error('executor')<span class="validation-error_text">{{$message}}</span> @enderror
+                <input name="group_id" value="{{ $group->id }}" type="text" hidden>
+            </div>
             <button class="btn btn-success create-task__btn" type="submit">Подтвердить</button>
         </form>
     </div>

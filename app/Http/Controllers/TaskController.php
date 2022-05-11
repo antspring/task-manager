@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTaskRequest;
 use App\Models\GroupToUser;
 use App\Models\Task;
 use App\Models\User;
@@ -9,7 +10,7 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function createTask(Request $request)
+    public function createTask(CreateTaskRequest $request)
     {
         $executor = User::where('login', $request->executor)->first();
 

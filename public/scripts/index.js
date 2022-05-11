@@ -130,13 +130,19 @@ $(document).ready(function () {
         });
     });
 
-    $(".nav-item").on("click",function (e) {
-
+    $(".nav-item").on("click",(e) => {
         $(".nav-item").removeClass("active")
-
         e.target.classList.add("active")
+    })
+    $("#tasks").on("click",function () {
+        $(".tasks").fadeIn(0)
+        $(".description").fadeOut(0)
 
+    })
 
+    $("#description").on("click",function () {
+        $(".tasks").fadeOut(0)
+        $(".description").css({display:"flex",justifyContent:"space-between"})
     })
 
     $('.panel__search-btn').on('keypress', function (e){

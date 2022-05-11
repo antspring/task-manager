@@ -388,3 +388,11 @@ main {
 .error-notification::before {
     background-color: #CE3166;
 }
+
+.validation-error_text {
+    margin-top: 7px;
+    font-size: 14px;
+    display: inline-block;
+    color: #E35297;
+    height: 16px;
+}
