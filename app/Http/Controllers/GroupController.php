@@ -25,6 +25,15 @@ class GroupController extends Controller
         return back();
     }
 
+    public function updateGroup($id, Request $request)
+    {
+        $group = Group::find($id);
+
+        $group->update(['description' => $request->description]);
+
+        return back();
+    }
+
 
     public function searchUsers(Request $request)
     {

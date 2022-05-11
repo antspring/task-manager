@@ -258,43 +258,31 @@
         <div class="description">
             <div class="description__text-block">
                 <h3 class="headline-3">Описание</h3>
-                <form action="#" method="post">
+                <form action="{{ route('update-group', $group->id) }}" method="post">
                     @csrf
                     @method('PUT')
-                    <textarea class="description__text-area" name="description" id="" placeholder="Начните писать описание"></textarea>
+                    <textarea class="description__text-area" name="description" placeholder="Начните писать описание">{{ $group->description }}</textarea>
+                    <button type="submit" class="btn btn-primary complete-group__btn">Сохранить</button>
                 </form>
             </div>
             <div class="members">
-                <h3 class="headline-3">Участники</h3>
+                <h3 class="headline-3">Участники: {{ $group->groupToUser->count() }}</h3>
                 <div class="members__photo">
                     <div class="members__photo-track">
-                        <div class="photo-track-image">
-                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
-                        </div>
-                        <div class="photo-track-image">
-                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
-                        </div>
-                        <div class="photo-track-image">
-                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
-                        </div>
-                        <div class="photo-track-image">
-                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
-                        </div>
-                        <div class="photo-track-image">
-                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
-                        </div>
-                        <div class="photo-track-image">
-                            <img src="{{asset('images/cool-man.jpg')}}" alt="image">
-                        </div>
+                        @foreach($group->groupToUser as $item)
+                            <div class="photo-track-image">
+                                <img class="photo-track-img" src="{{asset('storage/'.$item->user->image)}}" alt="image">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="task-deadline">
                     <h3 class="headline-3">Дата создания</h3>
                     <div class="task-deadline-date">
-                        19.05.22
+                        {{ $group->created_at->format('d.m.y') }}
                     </div>
                 </div>
-                <button class="btn btn-primary complete-group__btn">Завершить проект</button>
+                <button type="submit" class="btn btn-primary complete-group__btn">Завершить проект</button>
             </div>
         </div>
     </main>

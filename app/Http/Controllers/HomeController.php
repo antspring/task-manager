@@ -17,9 +17,9 @@ class HomeController extends Controller
         $consideredTask = [];
         $doneTasks = [];
 
-        $group = Group::where('id', $id)->first();
+        $group = Group::where('id', $id)->with('groupToUser')->first();
 
-        $tasks = Task::where('group_id', $id)->latest('id')->with('status')->get();
+        $tasks = Task::where('group_id', $id)->latest('id')->with('executor')->get();
 
         foreach ($tasks as $task) {
             switch ($task->status_id){

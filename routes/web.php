@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function (){
 
     Route::post('/create-group', [GroupController::class, 'createGroup'])->name('create-group');
 
+    Route::put('/update-group/{id}', [GroupController::class, 'updateGroup'])->name('update-group');
+
     Route::get('/get-task', [TaskController::class, 'getTask'])->name('get-task');
 
     Route::put('/update-task', [TaskController::class, 'updateTask'])->name('update-task');
