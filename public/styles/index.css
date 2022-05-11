@@ -502,9 +502,11 @@
 .create-task__input {
     width: 100%;
     padding: 16px;
-    margin-bottom: 15px;
+    margin-top: 15px;
 }
-
+.create-task__input:first-child {
+    margin-top: 0;
+}
 .create-task__btn {
     width: 160px;
     height: 45px;
@@ -564,6 +566,7 @@
 
 .nav-item {
     margin-right: 20px;
+    cursor:pointer;
 }
 
 .nav-item.active {
@@ -581,4 +584,80 @@
 }
 .nav-item:last-child{
     margin-right: 0;
+}
+
+.create-task__form >.btn-success {
+    margin-top: 20px;
+}
+
+/*DESCRIPTION*/
+
+.description{
+    display: none;
+}
+
+.description__text-block{
+    width: 50%;
+}
+
+.description__text-area {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #E2E2E2;
+    margin-top: 30px;
+    min-height: 100px;
+    resize: none;
+    font-family: 'Roboto-Regular', sans-serif;
+}
+
+.members {
+    width: 25%;
+}
+
+.members__photo-track {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 240px;
+}
+.members__photo {
+    margin-top: 20px;
+}
+
+.photo-track-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.photo-track-image:nth-child(5n) {
+    margin-right: 0;
+}
+
+.photo-track-image:nth-child(-n+5) {
+    margin-top: 0;
+}
+
+.task-deadline {
+    margin-top: 40px;
+}
+
+.task-deadline-date {
+    margin-top: 20px;
+    background: #CAC9FF;
+    padding: 10px 20px;
+    border-radius: 37px;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.complete-group__btn {
+    margin-top: 100px;
+    padding: 13px 20px;
 }
