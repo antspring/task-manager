@@ -271,7 +271,7 @@
                     <div class="members__photo-track">
                         @foreach($group->groupToUser as $item)
                             <div class="photo-track-image">
-                                <img class="photo-track-img" src="{{asset('storage/'.$item->user->image)}}" alt="image">
+                                <img class="photo-track-img" title="{{$item->user->name}}" src="{{asset('storage/'.$item->user->image)}}" alt="image">
                             </div>
                         @endforeach
                     </div>
@@ -303,19 +303,24 @@
                     <input name="task_id" type="text" hidden>
                     <textarea class="description__text" name="description" id="task-modal__description">
                     </textarea>
+                    <div class="change-priority">
+                        <select name="priority_id" class="change-priority__select">
+                            <option value="1">Низкий</option>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-success confirm-update">Сохранить</button>
                 </form>
             </div>
             <div class="task-modal__actions ">
                 <p class="actions__heading ">Доступные действия</p>
-                <button class="action__button">
+                <button id="change-priority-btn" class="action__button">
                     <object class="action__icon" data="{{ asset('images/tag.svg') }}" type=""></object>
                     Изменить приоритет
                 </button>
-                <button class="action__button">
-                    <object class="action__icon" data="{{ asset('images/back-man.svg') }}" type=""></object>
-                    Участники
-                </button>
+{{--                <button class="action__button">--}}
+{{--                    <object class="action__icon" data="{{ asset('images/back-man.svg') }}" type=""></object>--}}
+{{--                    Участники--}}
+{{--                </button>--}}
                 <form action="{{ route('delete-task') }}" method="POST">
                     @csrf
                     @method('DELETE')
@@ -364,6 +369,12 @@
                     @error('description')<span class="validation-error_text">{{$message}}</span> @enderror
                 <input id="search-people" name="executor" type="text" class="form-control create-task__input" autocomplete="off" placeholder="Введите логин исполнителя">
                     @error('executor')<span class="validation-error_text">{{$message}}</span> @enderror
+                <select name="priority_id" id="priority-select">
+                    <option data-display="Выберите приоритет"></option>
+                    <option value="1">Низкий</option>
+                    <option value="2">Средний</option>
+                    <option value="3">Высокий</option>
+                </select>
                 <input name="group_id" value="{{ $group->id }}" type="text" hidden>
             </div>
             <button class="btn btn-success create-task__btn" type="submit">Подтвердить</button>

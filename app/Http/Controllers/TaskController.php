@@ -13,14 +13,13 @@ class TaskController extends Controller
     public function createTask(CreateTaskRequest $request)
     {
         $executor = User::where('login', $request->executor)->first();
-
         Task::create([
             'executor_id' => $executor->id,
             'creator_id' => $request->user()->id,
             'title' => $request->title,
             'description' => $request->description,
             'status_id' => Task::NEW_TASK,
-            'priority_id' => Task::LOW_PRIORITY,
+            'priority_id' => $request->priority_id,
             'group_id' => $request->group_id
         ]);
 

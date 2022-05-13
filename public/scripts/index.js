@@ -31,6 +31,8 @@ $(document).ready(function () {
     // custom select
     $('.custom-select').niceSelect();
 
+    $('#priority-select').niceSelect();
+
     $(".addpeople-form").on("submit",function (e) {
         e.preventDefault();
         $.ajax({
@@ -160,6 +162,10 @@ $(document).ready(function () {
         if (e.target.value === ''){
             $('.task').removeClass('task-focus');
         }
+    })
+
+    $("#change-priority-btn").on("click",function () {
+        $(".change-priority").toggleClass("active")
     })
 
 })

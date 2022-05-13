@@ -666,3 +666,41 @@
     margin-top: 30px;
     padding: 13px 20px;
 }
+
+.create-task__form-inner > .nice-select {
+    margin-top: 15px;
+    color: #757575;
+    width: 100%;
+}
+
+.create-task__form-inner > .nice-select > .list li:first-of-type {
+    display: none;
+}
+
+.change-priority > .nice-select > .list li:first-of-type {
+    display: none;
+}
+
+.change-priority > .nice-select{
+    width: 200px;
+}
+
+.change-priority{
+    position: absolute;
+    display: none;
+    right: -15%;
+    width: fit-content;
+    background: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    top: 24%;
+}
+
+.change-priority.active{
+    display: block;
+}
+
+.change-priority__select {
+    overflow: hidden;
+    border: none;
+}

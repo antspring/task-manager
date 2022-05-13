@@ -6,7 +6,6 @@ use App\Models\Group;
 use App\Models\GroupToUser;
 use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
