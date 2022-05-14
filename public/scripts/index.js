@@ -14,9 +14,14 @@ $(document).ready(function () {
     $('.task-modal__btn').click(function(e) {
         const id = e.target.parentElement.parentElement.id;
 
+        $('.priority').removeClass('active');
+        $('.priority_wrap').removeClass('active');
+
         $.get('/get-task', { task_id: id }).done((response) => {
             $('#task-modal__name').text(response.title);
             $('#task-modal__description').text(response.description);
+
+            $(`.priority[data-priority-id=${response.priority_id}]`).addClass('active');
 
             $(`input[name='task_id']`).val(response.id);
         });
@@ -168,4 +173,13 @@ $(document).ready(function () {
         $(".change-priority").toggleClass("active")
     })
 
+    $('.priority').on('click', function (){
+        $('#priority_id').val($(this).attr('data-priority-id'));
+        $('.priority').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('#change-priority-btn').on('click', function(){
+        $('.priority_wrap').toggleClass('active');
+    });
 })

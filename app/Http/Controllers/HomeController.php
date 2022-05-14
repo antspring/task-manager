@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\GroupToUser;
+use App\Models\Priority;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,8 @@ class HomeController extends Controller
         $doneTasks = [];
 
         $group = Group::where('id', $id)->with('groupToUser')->first();
+
+        $priority = Priority::all();
 
         $tasks = Task::where('group_id', $id)->latest('id')->with('executor')->get();
 
@@ -40,7 +43,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('pages.index', compact('newTasks', 'workTasks', 'consideredTask', 'doneTasks','group'));
+        return view('pages.index', compact('newTasks', 'workTasks', 'consideredTask', 'doneTasks', 'group', 'priority'));
     }
 
     public function personalArea(Request $request)

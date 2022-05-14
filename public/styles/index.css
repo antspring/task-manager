@@ -315,6 +315,40 @@
     font-size: 16px;
 }
 
+.priority_wrap{
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    right: -18%;
+    top: 17%;
+}
+
+.priority_wrap.active{
+    display: block;
+}
+
+.priority{
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.priority.active{
+    border-color: #7775F8;
+    background-color: rgb(119 117 248 / 20%);
+}
+
+.priority_color{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
 .update-descr__form {
     padding-left: 30px;
 }

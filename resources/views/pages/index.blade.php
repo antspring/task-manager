@@ -303,13 +303,14 @@
                     <input name="task_id" type="text" hidden>
                     <textarea class="description__text" name="description" id="task-modal__description">
                     </textarea>
-                    <div class="change-priority">
-                        <select name="priority_id" class="change-priority__select">
-                            <option value="1">Низкий</option>
-                        </select>
-                    </div>
+                    <input id="priority_id" name="priority_id" type="text" hidden>
                     <button type="submit" class="btn btn-success confirm-update">Сохранить</button>
                 </form>
+                <div class="priority_wrap">
+                    @foreach($priority as $item)
+                        <div class="priority" data-priority-id="{{ $item->id }}"><div style="background-color: {{ $item->color }}" class="priority_color"></div>{{ $item->name }}</div>
+                    @endforeach
+                </div>
             </div>
             <div class="task-modal__actions ">
                 <p class="actions__heading ">Доступные действия</p>
