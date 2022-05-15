@@ -24,7 +24,7 @@
                 <div class="projects">
                     <div class="projects__list">
                         @forelse ($groupToUser as $item)
-                            <a href="{{ route('project', $item->group_id )}}" class="project__item">
+                            <a href="{{ route('project', $item->group->slug )}}" class="project__item">
                                 <p class="project__name">{{ $item->group->name }}</p>
                                 <div class="project__desc">
                                     <div class="project-indicator success"></div>
@@ -87,7 +87,6 @@
         let loadFile = function (event) {
             let output = document.getElementById("output-image");
             output.src = URL.createObjectURL(event.target.files[0])
-            console.log(URL.createObjectURL(event.target.files[0]))
         }
     </script>
 @endpush

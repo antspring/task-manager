@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function (){
 
     Route::delete('/delete-task', [TaskController::class, 'deleteTask'])->name('delete-task');
 
-    Route::get('/project/{id}', [HomeController::class, 'index'])->name('project');
+    Route::get('/project/{group}', [HomeController::class, 'index'])->name('project');
 
     Route::post('/create-task', [TaskController::class, 'createTask'])->name('create-task');
 

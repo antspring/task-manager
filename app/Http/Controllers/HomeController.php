@@ -10,18 +10,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index($id, Request $request)
+    public function index($slug, Request $request)
     {
         $newTasks = [];
         $workTasks = [];
         $consideredTask = [];
         $doneTasks = [];
 
-        $group = Group::where('id', $id)->with('groupToUser')->first();
+        $group = Group::where('slug', $slug)->with('groupToUser')->first();
 
         $priority = Priority::all();
 
-        $tasks = Task::where('group_id', $id)->latest('id')->with('executor')->get();
+        $tasks = Task::where('group_id', $group->id)->latest('id')->with('executor')->get();
 
         foreach ($tasks as $task) {
             switch ($task->status_id){

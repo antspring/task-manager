@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description','slug'];
 
     public function groupToUser()
     {
@@ -17,5 +17,12 @@ class Group extends Model
     public function tasks()
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function setKeyName($slug)
+    {
+        $this->primaryKey = $slug;
+
+        return $this;
     }
 }
