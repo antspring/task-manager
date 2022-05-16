@@ -17,7 +17,7 @@ class HomeController extends Controller
         $consideredTask = [];
         $doneTasks = [];
 
-        $group = Group::where('slug', $slug)->with('groupToUser')->first();
+        $group = Group::where('slug', $slug)->with('groupToUser')->firstOrFail();
 
         $priority = Priority::all();
 

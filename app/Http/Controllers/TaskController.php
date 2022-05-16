@@ -23,7 +23,7 @@ class TaskController extends Controller
             'group_id' => $request->group_id
         ]);
 
-        return back();
+        return back()->with('success','Действие успешно выполнено');
     }
 
     public function getTask(Request $request)
@@ -41,7 +41,7 @@ class TaskController extends Controller
 
         $task->update($data);
 
-        return back();
+        return back()->with('success','Действие успешно выполнено');
     }
 
     public function deleteTask(Request $request)
@@ -50,7 +50,7 @@ class TaskController extends Controller
 
         $task->delete();
 
-        return back();
+        return back()->with('success','Действие успешно выполнено');
     }
 
     public function searchGroupUsers(Request $request)

@@ -285,6 +285,13 @@
                 <button type="submit" class="btn btn-primary complete-group__btn">Завершить проект</button>
             </div>
         </div>
+        @if(session('success'))
+            <div class="notification success-notification">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12L10 18L20 6" stroke="#47D664" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>{{session('success')}}
+            </div>
+        @endif
     </main>
     <!-- TASK-MODAL -->
     <div class="task-modal modal">
@@ -381,7 +388,6 @@
             <button class="btn btn-success create-task__btn" type="submit">Подтвердить</button>
         </form>
     </div>
-
 
     <!-- MAIN  END-->
 @endsection

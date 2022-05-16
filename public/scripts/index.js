@@ -22,6 +22,7 @@ $(document).ready(function () {
             $('#task-modal__description').text(response.description);
 
             $(`.priority[data-priority-id=${response.priority_id}]`).addClass('active');
+            $(`input[name='priority_id']`).val(response.priority_id);
 
             $(`input[name='task_id']`).val(response.id);
         });

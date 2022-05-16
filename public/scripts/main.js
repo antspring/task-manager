@@ -45,15 +45,13 @@ $(document).on("click",".notification",function() {
 function getSuccess() {
     $("body").append(successNotifications);
 
-    setTimeout(function () {
-        $('.notification').remove();
-    },2500);
 }
 
 function getError() {
     $("body").append(errorNotifications);
 
-    setTimeout(function () {
-        $('.notification').remove();
-    },2500);
 }
+
+setTimeout(function () {
+    $('.notification').remove();
+},2500);

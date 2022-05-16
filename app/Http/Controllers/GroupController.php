@@ -26,7 +26,7 @@ class GroupController extends Controller
 
         $groupToUser->save();
 
-        return back();
+        return back()->with('success','Действие успешно выполнено');
     }
 
     public function updateGroup($id, Request $request)
@@ -35,7 +35,7 @@ class GroupController extends Controller
 
         $group->update(['description' => $request->description]);
 
-        return back();
+        return back()->with('success','Действие успешно выполнено');
     }
 
 
@@ -60,6 +60,6 @@ class GroupController extends Controller
         $groupToUser->group_id = $request->group_id;
         $groupToUser->save();
 
-        return back();
+        return back()->with('success','Действие успешно выполнено');
     }
 }
