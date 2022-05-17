@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="{{asset('styles/plugins/reset.css')}}">
     <link rel="stylesheet" href="{{asset('styles/layout.css')}}">
     <link rel="stylesheet" href="{{asset('styles/index.css')}}">
+    <link rel="shortcut icon" href="{{asset('fav-icon.png')}}">
     @stack('styles')
 
-    <title>Document</title>
+    <title>task-manager - @yield('title')</title>
 </head>
 <body>
 

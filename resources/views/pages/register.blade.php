@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title','Регистрация')
 @section('register-content')
     <div class="main-container registration-container">
         <div class="registration">

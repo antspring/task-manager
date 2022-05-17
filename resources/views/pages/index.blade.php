@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title',$group->name)
 @section('content')
     <!-- MAIN BEGIN -->
     <main>

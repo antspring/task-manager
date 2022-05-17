@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title','Личный кабинет')
 @section('content')
     <main>
         <h1 class="headline-1">Личный кабинет</h1>
