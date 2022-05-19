@@ -399,7 +399,7 @@
     <script src="{{asset('scripts/plugins/jquery.nice-select.min.js')}}"></script>
     <script src="{{asset('scripts/plugins/jquery-ui.js')}}"></script>
     <script src="{{asset('scripts/index.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+    <script src="{{asset('scripts/plugins/jquery.typeahead.js')}}" ></script>
     <script type="text/javascript">
         function searchGroupUsers() {
             let path = "{{route("search.group.users")}}"

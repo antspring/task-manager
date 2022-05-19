@@ -43,9 +43,9 @@ $(document).ready(function () {
         e.preventDefault();
         $.ajax({
             url: $(this).attr('action'),
-            type: "post",
-            data: $(".addpeople-form").serializeArray(),
-            success:function (data) {
+            type: $(this).attr("method"),
+            data: $(this).serializeArray(),
+            success:function () {
                 $(".addpeople-form input").val("").parent().find("span").text("");
 
                 getSuccess();
@@ -55,6 +55,21 @@ $(document).ready(function () {
                 for (let key in errors) {
                     $(`input[name="${key}"]`).parent().find('span').text(errors[key]);
                 }
+                getError();
+            }
+        })
+    })
+
+    $(".create-task__form").on("submit",function (e){
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr("action"),
+            type: $(this).attr("method"),
+            data: $(this).serializeArray(),
+            success: () => {
+                location.reload()
+            },
+            error:()=>{
                 getError();
             }
         })
@@ -128,6 +143,8 @@ $(document).ready(function () {
             $('.modal')
                 .css('display', 'none')
                 .animate({ opacity: 0 }, 0);
+
+            $(".modal span").text("");
         });
     })
 
