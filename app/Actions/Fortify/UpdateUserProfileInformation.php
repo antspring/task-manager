@@ -30,7 +30,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $input['image'] = $user->image;
 
         }else {
-            Storage::disk('public')->delete($user->image);
+            $user->image === 'images/avatar.webp' || Storage::disk('public')->delete($user->image);
 
             $path =  Storage::disk('public')->put('users', $input['image']);
 
