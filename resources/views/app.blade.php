@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('styles/plugins/reset.css')}}">
     <link rel="stylesheet" href="{{asset('styles/layout.css')}}">
     <link rel="stylesheet" href="{{asset('styles/index.css')}}">
+    <link rel="stylesheet" href="{{asset('styles/responsive.css')}}">
     <link rel="shortcut icon" href="{{asset('fav-icon.png')}}">
     @stack('styles')
 
