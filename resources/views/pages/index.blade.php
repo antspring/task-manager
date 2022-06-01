@@ -282,7 +282,7 @@
                         {{ $group->created_at->format('d.m.y') }}
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary complete-group__btn">Завершить проект</button>
+{{--                <button type="submit" class="btn btn-primary complete-group__btn">Завершить проект</button>--}}
             </div>
         </div>
         @if(session('success'))
