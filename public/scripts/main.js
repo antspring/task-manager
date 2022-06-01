@@ -44,14 +44,18 @@ $(document).on("click",".notification",function() {
 
 function getSuccess() {
     $("body").append(successNotifications);
-
+    destroyNotification()
 }
 
 function getError() {
     $("body").append(errorNotifications);
+    destroyNotification()
 
 }
+function destroyNotification() {
+    setTimeout(function () {
+        $('.notification').remove();
+    },2500);
+}
 
-setTimeout(function () {
-    $('.notification').remove();
-},2500);
+destroyNotification()

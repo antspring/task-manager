@@ -144,7 +144,7 @@ $(document).ready(function () {
                 .css('display', 'none')
                 .animate({ opacity: 0 }, 0);
 
-            $(".modal span").text("");
+            $(".modal span:not(.current)").text("");
         });
     })
 
